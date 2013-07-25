@@ -1,8 +1,9 @@
 class CreateSalePrices < ActiveRecord::Migration
   def change
     create_table :spree_sale_prices do |t|
-      t.integer :variant_id
-      t.float :value
+      t.integer :variant_id, :null => false
+      t.decimal :amount, :precision => 8, :scale => 2
+      t.string  :currency
       t.datetime :start_at
       t.datetime :end_at
       t.boolean :enabled
