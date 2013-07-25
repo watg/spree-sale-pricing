@@ -6,7 +6,7 @@ module Spree
     end
 
     def compute(sale_price)
-      sale_price.value
+      sale_price.amount
     end
   end
 end

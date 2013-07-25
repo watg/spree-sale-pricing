@@ -30,8 +30,8 @@ class Spree::Admin::SalePricesController < Spree::Admin::ResourceController
 
   def create
     # authorize! :create, @sale
-    @product = Spree::Product.find_by_id(params[:sale_price]["product_id"])
-    @new_price = params[:sale_price]["value"]
+    @product = Spree::Product.find_by_id(params[:sale_price][:product_id])
+    @new_price = params[:sale_price][:amount]
 
     respond_to do |format|
       if @product.put_on_sale(@new_price)
