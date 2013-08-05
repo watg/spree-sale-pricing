@@ -7,7 +7,7 @@ html = '
         <br /><br />
       <label>Original price:</label>
       <br />
-      <p><%= @product.original_price.to_f %></p>
+      <p><%= @product.original_price.display_amount %></p>
       <% else %>
         <%= link_to "Enable Sale", new_admin_sale_price_path + "?product_id=#{@product.id}", :class => "button icon-plus" %>
       <% end %>

@@ -36,7 +36,7 @@
           <%= sale.amount %>
         </td>
         <td>
-          <%= sale.variant.original_price if sale.variant.original_price.present? %>
+          <%= sale.variant.original_price.display_amount if sale.variant.original_price.present? %>
         </td>
         <td>
           <%= link_to "Edit sale", admin_sale_price_path(sale.id) %>

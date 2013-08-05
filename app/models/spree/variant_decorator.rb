@@ -29,13 +29,18 @@ Spree::Variant.class_eval do
     sale_prices.active.present?
   end
 
-  def original_price
-    a = self.id
-    currency = self.cost_currency
-    # currency = "EUR" # HARDCODED
-    b = Spree::Price.where(:variant_id => a).where(:currency => currency).first.amount
-    return b
+  # RR: We should use this instead
+  def original_price(currency = Spree::Config[:currency])
+    price_in(currency)
   end
+  
+  # def original_price
+  #   a = self.id
+  #   currency = self.cost_currency
+  #   # currency = "EUR" # HARDCODED
+  #   b = Spree::Price.where(:variant_id => a).where(:currency => currency).first.amount
+  #   return b
+  # end
 
   def price
     on_sale? ? sale_price : original_price

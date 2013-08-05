@@ -42,9 +42,10 @@ Spree::Product.class_eval do
     master.original_price
   end
 
-  def price
-    master.price
-  end
+  # RR: I had to add .amount on price
+  # def price
+  #   master.price.amount
+  # end
 
   def enable_sale(all_variants = true)
     if all_variants && variants.present?
